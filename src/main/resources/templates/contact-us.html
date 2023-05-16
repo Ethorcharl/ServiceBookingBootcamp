@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Welcome to Service Booking!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+  <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  <style>
+
+        a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+
+        body {
+        background-color: #f8f9fa;
+        }
+
+        .main-text {
+        text-align: center;
+        color: #955aed;
+        padding-top: 80px;
+        }
+
+        h5 {
+        text-align:left;
+        color: #955aed;
+        }
+        .submit {
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+
+        .container-one {
+        padding: 40px;
+        margin: 20px 0px 10px 300px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+        text-align: center;
+        float: left;
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        }
+
+
+        .container-two {
+        padding: 20px;
+        margin: 120px 400px 10px 0px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+        text-align: center;
+        float: right;
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        }
+
+        input[type=text], select, textarea {
+         text-align: left;
+         width: 100%;
+         padding: 12px;
+         border: 1px solid #955aed;
+         border-radius: 5px;
+         box-sizing: border-box;
+         margin-top: 6px;
+         margin-bottom: 16px;
+         resize: vertical;
+         }
+    </style>
+  <nav>
+    <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+    <button class="header"><a href="/registration">Register</a></button>
+    <button class="header"><a href="/private">My profile</a></button>
+    <button class="header"><a href="/contact">Contact Us</a></button>
+    <button class="header"><a href="/about-us">About Us</a></button>
+    <button class="header"><a href="/services">Our Services</a></button>
+    <button class="header"><a href="/home">Home</a></button>
+  </nav>
+</head>
+<body>
+<h1 class="main-text">Contact Us</h1>
+
+<div class="container-one">
+    <form action="action_page.php">
+      <h5>First Name</h5>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+      <h5>Last Name</h5>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+      <h5>Email</h5>
+      <input type="text" id="email" name="email" placeholder="Your email..">
+      <h5>What can we help you with?</h5>
+      <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      <button class="submit"><a href="/contact-us/submit">Submit</a></button>
+      </form>
+  </div>
+
+<div class="container-two">
+  <h5 style="font-weight:bold;">Our office location:</h5>
+  <h5>301 West St, 2nd Floor, Boston</h5>
+  <br>
+  <h5 style="font-weight:bold;">Phone number:</h5>
+  <h5>617-509-6995</h5>
+  <br>
+  <h5 style="font-weight:bold;">Email:</h5>
+  <h5>info@servicebooking.com</h5>
+</div>
+
+
+</body>
+</html>

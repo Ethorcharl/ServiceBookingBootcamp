@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div class="container">
+    <h1>Congrats!!! You did it!</h1>
+    <form action="/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+
+        <form sec:authorize="${hasAnyAuthority('client:read')}" action="/auth/logout" method="POST">
+            <button type="submit">Only for User</button>
+        </form>
+
+    <form sec:authorize="${hasAnyAuthority('client:read')}"  action="/auth/users" method="GET">
+        <button type="submit">For user but can't use </button>
+    </form>
+
+        <form sec:authorize="${hasAnyAuthority('specialist:write')}" action="/auth/logout" method="POST">
+            <button type="submit">Only for Admin</button>
+        </form>
+
+        <form sec:authorize="${hasAnyAuthority('specialist:write')}" action="/auth/users" method="GET">
+            <button type="submit">Only for admin show all users </button>
+        </form>
+
+</div>
+</html>

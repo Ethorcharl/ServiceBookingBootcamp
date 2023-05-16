@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Service Form</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-5">
+            <form th:action="@{/createService}" th:object="${service}" method="post">
+                <div class="form-floating mb-3">
+                    <label for="floatingInputUsername">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="floatingInputUsername" placeholder="Name" required autofocus>
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingInputSurname">Price</label>
+                    <input type="number" step="0.01" class="form-control" th:field="*{price}" id="floatingInputSurname" placeholder="Price" required autofocus>
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="TextArea">Description</label>
+                    <textarea type="text" class="form-control" th:field="*{description}"
+                              id="TextArea" placeholder="Description" required minlength="1"></textarea>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="category">Category</label>
+                    <select class="form-control p-1" id="category" th:field="*{idServicesCategory}" required autofocus>
+                        <option value="">Select option</option>
+                        <option th:each="servicesCategory : ${servicesCategories}" th:value="${servicesCategory.id}"
+                                th:text="${servicesCategory.category +','+servicesCategory.subCategory}"></option>
+                    </select>
+                </div>
+
+                <div class="d-grid mb-2">
+                    <button class="btn btn-primary d-block mx-auto fw-bold text-uppercase" type="submit" style="background-color: #8A2BE2;">Create</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

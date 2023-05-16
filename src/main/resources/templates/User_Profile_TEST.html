@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .profile-container,
+      .skills {
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+      }
+
+      .skills:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-container {
+        margin: 0px -37%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-image {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .profile-image img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-name {
+        font-size: 36px;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .profile-description {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #666;
+        text-align: left;
+      }
+
+      .profile-languages ul,
+      .profile-services ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-languages li,
+      .profile-services li {
+        margin-right: 10px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .profile-languages li i,
+      .profile-services li i {
+        margin-right: 5px;
+        color: #955aed;
+      }
+
+      .profile-ratings,
+      .profile-services,
+      .profile-cta {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .profile-ratings .rating-stars,
+      .profile-services .services-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-ratings .star,
+      .profile-services .services-text {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-image: url(star.png);
+        background-size: cover;
+        margin-right: 5px;
+      }
+
+      .profile-services .services-count {
+        font-size: 24px;
+        margin-bottom: 5px;
+        color: #955aed;
+      }
+
+      .profile-services .services-text {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 10px;
+        width: auto;
+      }
+
+      .profile-cta button {
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .profile-cta button:hover {
+        background-color: #803eeb;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 25px;
+        align-items: flex-start;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+
+      .profile .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .profile .info h2 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .profile .info .ratings {
+        margin: 0;
+        font-size: 1rem;
+        color: #888;
+      }
+      .fa, .fas {
+        color: gold;
+      }
+      p {
+        margin-bottom: 0rem !important;
+      }
+      .profile-buttons{
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .left-section{
+        width: 30%;
+      }
+
+      .right-section{
+        width: 70%;
+      }
+      .vertical-line {
+        border-left: 1px solid #955aed;
+        height: 760px;
+      }
+
+      a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;}
+
+    </style>
+  <nav>
+    <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+    <button class="header"><a href="/home">Home</a></button>
+    <button class="header"><a href="about.html">Our Services</a></button>
+    <button class="header"><a href="services.html">About Us</a></button>
+    <button class="header"><a href="contact.html">Contact Us</a></button>
+    <button class="header"><a href="/private">My profile</a></button>
+  </nav>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3" style="padding: 100px 0px;">
+      <div class="profile-container">
+        <div class="profile">
+          <div class="profile-image">
+            <img src="https://i.ibb.co/jL6vj36/profile-picture.jpg" alt="Profile Picture">
+          </div>
+          <div>
+            <div class="profile-name">
+              John Doe
+            </div>
+              <div class="info">
+                <p style="text-align: left; padding-left: 0px">Ratings</p>
+                <div class="rating-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+          </div>
+          <div class="profile-buttons">
+            <div class="profile-cta">
+              <button>Contact</button>
+            </div>
+            <div class="profile-cta">
+              <button>Edit</button>
+            </div>
+          </div>
+        </div>
+        <div class="profile">
+          <div class="left-section">
+            <div class="profile-languages">
+              <p>Languages</p>
+              <ul>
+                <li class="skills">Lithuanian</li>
+                <li class="skills">English</li>
+                <li class="skills">Spanish</li>
+              </ul>
+            </div>
+            <div class="profile-services">
+              <p>Services</p>
+              <div class="services-count">15</div>
+              <div class="services-text">completed projects</div>
+              <p>Skills</p>
+              <ul>
+                <li class="skills">Web Design</li>
+                <li class="skills">Responsive Design</li>
+                <li class="skills">Front-end Development</li>
+              </ul>
+              <p>Education</p>
+              <ul>
+                <li class="skills">Kaunas Technology university</li>
+                <li class="skills">Code Academy</li>
+              </ul>
+            </div>
+          </div>
+          <div class="vertical-line"></div>
+          <div class="right-section">
+            <p>Description</p>
+            <div class="profile-description">
+              👋 Hi, there, Welcome to my profile!<br><br>
+              🏆Developer, Website Builder and Designer, eCommerce VA, Logo Designer, Video and Photo Editor.<br><br>
+
+              Who is looking for employment in a remote type of job. Ready to use my all programming and eCommerce management skills to help people with various kind of problems, to be helpful in projects, keep pursuing the mission of a company or team.<br><br>
+
+              ⭐ Developer for 5 years.<br>
+              ⭐ Website builder, designer and eCommerce VA in 5+ projects for 4 years.<br>
+              ⭐ 100% Client Satisfaction's consistent best quality and service delivery.<br>
+              ⭐ Detailed-oriented, self-motivated, punctual and fast learner.<br><br>
+
+              I’m always on the lookout to learn the latest technology and welcome all projects that require me to get familiar with new technologies.<br><br>
+
+              Regards,<br>
+              Jogn Doe
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

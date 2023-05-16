@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Description</title>
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+                     a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+               body {
+        background-color: #f8f9fa;
+      }
+      th, td {
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 200px 400px 200px 400px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+        text-align: center;
+       }
+
+      table {
+      border-collapse: collapse;
+      margin: 40px 200px;
+      }
+
+
+    </style>
+    <nav>
+        <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+        <button class="header"><a href="/registration">Register</a></button>
+        <button class="header"><a href="/profile">My profile</a></button>
+        <button class="header"><a href="/contact-us">Contact Us</a></button>
+        <button class="header"><a href="/about-us">About Us</a></button>
+        <button class="header"><a href="/services">Our Services</a></button>
+        <button class="header"><a href="/home">Home</a></button>
+    </nav>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Service name</th>
+        <th>Description</th>
+        <th>Price, EUR</th>
+        <th>Service rating</th>
+        <th>Number of reviews</th>
+        <th>Name specialist</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <!--    <tr th:each="service : ${serviceDescription}">-->
+        <td th:text="${service.name}"></td>
+        <td th:text="${service.description}"></td>
+        <td th:text="${service.price}"></td>
+        <td th:text="${service.avgrating}"></td>
+        <td th:text="${service.countreview}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.email}"></td>
+
+    </tr>
+    <td><button ><a th:href="@{/services/description/createBookingForm/{serviceId}/{authorId}(serviceId=${service.id}, authorId=${user.id})}">Booking</a></button></td>
+
+</table>
+
+<table>
+    <tr>
+        <td>
+            <form th:action="@{/createReview}" method="post">
+
+                <input type="hidden"
+                       th:value="${service.id}"
+                       name="id">
+
+
+                <label for="rating">Rating:</label>
+                <select id="rating" name="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+
+                <div class="mb-5">
+                    <label for="TextArea" class="form-label">Textarea</label>
+                    <textarea class="form-control" id="TextArea" name="TextArea" rows="3"></textarea>
+                </div>
+
+                <button type="submit">
+                    Send review
+                </button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<table  th:each="review : ${reviews}">
+    <div >
+        <tr>
+            <th>Rating</th>
+            <th>Comment</th>
+            <th>User Name </th>
+            <th>User Surname</th>
+            <th>Time</th>
+        </tr>
+        <tr>
+            <div class="col">
+                <td th:text="${review.rating}"></td>
+                <td th:text="${review.comment}"></td>
+                <td th:text="${review.usersIdUsers.name}"></td>
+                <td th:text="${review.usersIdUsers.surname}"></td>
+                <td th:text="${#temporals.format(review.time_review, 'yyyy-MM-dd HH:mm')}"></td>
+
+            </div>
+        </tr>
+    </div>
+</table>
+
+</body>
+</html>

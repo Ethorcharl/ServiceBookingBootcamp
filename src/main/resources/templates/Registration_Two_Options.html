@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Account</title>
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+  <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+       a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;}
+
+        body {
+        background-color: #f8f9fa;
+      }
+      .containerParent{
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        padding: 50px;
+        margin: 20px 400px 20px 400px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+        text-align: center;
+      }
+        .containerChild{
+        display: inline-block;
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: #955aed;
+        color: white;
+
+        }
+        button {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;}
+
+</style>
+</head>
+<nav>
+  <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+  <button class="header"><a href="/registration">Register</a></button>
+  <button class="header"><a href="/private">My profile</a></button>
+    <button class="header"><a href="/contact-us">Contact Us</a></button>
+    <button class="header"><a href="/about-us">About Us</a></button>
+  <button class="header"><a href="/services">Our Services</a></button>
+  <button class="header"><a href="/home">Home</a></button>
+</nav>
+<body>
+<div class="containerParent">
+    <div class = "containerChild">
+   <button><a href="/auth/registration_client"> I'm a client, looking for specialists </a></button>
+    </div>
+    &nbsp;
+    <div class = "containerChild">
+     <button><a href="/auth/registration_specialist"> I'm a specialist, I want to offer my services </a></button>
+    </div>
+    </div>
+</body>
+</html>

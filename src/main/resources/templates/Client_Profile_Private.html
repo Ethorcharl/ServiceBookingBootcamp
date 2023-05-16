@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .profile-container,
+      .skills {
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+      }
+
+      .skills:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-container {
+        margin: 0px -37%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .profile-image {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .profile-image img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-name {
+        font-size: 36px;
+        margin-bottom: 10px;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .profile-description {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: #666;
+        text-align: left;
+      }
+
+      .profile-languages ul,
+      .profile-services ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-languages li,
+      .profile-services li {
+        margin-right: 10px;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .profile-languages li i,
+      .profile-services li i {
+        margin-right: 5px;
+        color: #955aed;
+      }
+
+      .profile-ratings,
+      .profile-services,
+      .profile-cta {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 20px;
+        color: #333;
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+      }
+
+      .profile-ratings .rating-stars,
+      .profile-services .services-count {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .profile-ratings .star,
+      .profile-services .services-text {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-image: url(star.png);
+        background-size: cover;
+        margin-right: 5px;
+      }
+
+      .profile-services .services-count {
+        font-size: 24px;
+        margin-bottom: 5px;
+        color: #955aed;
+      }
+
+      .profile-services .services-text {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 10px;
+        width: auto;
+      }
+
+      .profile-cta button {
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .profile-cta button:hover {
+        background-color: #803eeb;
+      }
+
+      .profile {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        padding: 25px;
+        align-items: flex-start;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+
+      .profile .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .profile .info h2 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .profile .info .ratings {
+        margin: 0;
+        font-size: 1rem;
+        color: #888;
+      }
+      .fa, .fas {
+        color: gold;
+      }
+      p {
+        margin-bottom: 0rem !important;
+      }
+      .profile-buttons{
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .left-section{
+        width: 30%;
+      }
+
+      .right-section{
+        width: 70%;
+      }
+      .vertical-line {
+        border-left: 1px solid #955aed;
+        height: 760px;
+      }
+             a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+
+    </style>
+  <nav>
+    <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+    <button class="header"><a href="/registration">Register</a></button>
+    <button class="header"><a href="/private">My profile</a></button>
+      <button class="header"><a href="/contact-us">Contact Us</a></button>
+      <button class="header"><a href="/about-us">About Us</a></button>
+    <button class="header"><a href="/services">Our Services</a></button>
+    <button class="header"><a href="/home">Home</a></button>
+  </nav>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3" style="padding: 100px 0px;">
+      <div class="profile-container">
+        <div class="profile">
+          <div class="profile-image">
+            <img th:src="${userProfile.picture}" alt="Profile Picture">
+          </div>
+          <div>
+            <div class="profile-name">
+<!--              Name Surname get from the object-->
+                <td th:text="${userProfile.name} + ' ' + ${userProfile.surname}"></td>
+            </div>
+
+          </div>
+          <div class="profile-buttons">
+            <div class="profile-cta">
+              <button type="button"><a href="private/edit">Edit</a></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="money text-left">
+          <p class="p-4">Account info:</p>
+          <div class="title border">
+            <div>
+              <p th:text="'Balance: ' + ${userProfile.accountIdaccount.money} + ' EUR'"></p>
+            </div>
+            <div>
+<!--              Card added: **** **** **** **12-->
+                <p th:text="'Card added: **** **** **** **' + ${#strings.substring(userProfile.accountIdaccount.cardNumber, 14, 16)}"></p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="profile">
+          <div class="left-section">
+            <div class="profile-languages">
+
+              <p>Languages</p>
+              <ul>
+                <li class="skills" th:text="${userProfile.language}"></li>
+<!--                <li class="skills">English</li>-->
+<!--                <li class="skills">Spanish</li>-->
+              </ul>
+            </div>
+            <div class="profile-services">
+              <p>Services</p>
+              <div class="services-count" th:text="${userProfile.bookings.size()}"></div>
+              <div class="services-text">services bought</div>
+            </div>
+          </div>
+          <div class="vertical-line"></div>
+          <div class="right-section">
+            <p>Description</p>
+              <textarea class="profile-description form-control" th:utext="${userProfile.description}" rows="21" cols="80"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

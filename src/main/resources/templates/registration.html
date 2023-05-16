@@ -1,0 +1,139 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+               a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+    </style>
+    <nav>
+        <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+        <button class="header"><a href="/registration">Register</a></button>
+        <button class="header"><a href="/private">My profile</a></button>
+        <button class="header"><a href="/contact-us">Contact Us</a></button>
+        <button class="header"><a href="/about-us">About Us</a></button>
+        <button class="header"><a href="/services">Our Services</a></button>
+        <button class="header"><a href="/home">Home</a></button>
+    </nav>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">User Registration</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <form th:action="@{/auth/process_register_specialist}" th:object="${user}" method="post">
+                <div class="form-floating mb-3">
+                    <label for="floatingInputUsername">Name</label>
+                    <input type="text" class="form-control" th:field="*{name}" id="floatingInputUsername" placeholder="Name" required autofocus>
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingInputSurname">Surname</label>
+                    <input type="text" class="form-control" th:field="*{surname}" id="floatingInputSurname" placeholder="Surname" required autofocus>
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" th:field="*{email}" id="email" required placeholder="name@example.com">
+
+                </div>
+                <div class="form-floating mb-3">
+                    <label for="floatingPassword">Password</label>
+                    <input type="password" class="form-control" th:field="*{password}" id="floatingPassword" placeholder="Password" required minlength="4">
+                </div>
+                <div class="d-grid mb-2">
+                    <button class="btn btn-primary d-block mx-auto fw-bold text-uppercase" type="submit" style="background-color: #8A2BE2;">Registration</button>
+
+                </div>
+                <a class="d-block text-center mt-2 small" href="/auth/login" style="color: #8A2BE2;">Have an account? Login</a>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+<!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"-->
+<!--          crossorigin="anonymous">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container mt-5">-->
+<!--    <h1 class="text-center mb-4">User Registration</h1>-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-md-6 col-lg-4">-->
+<!--                        <form th:action="@{/auth/process_register}" th:object="${user}" method="post">-->
+<!--                            <div class="form-floating mb-3">-->
+<!--                                <label for="floatingInputUsername">Name</label>-->
+<!--                                <input type="text" class="form-control" th:field="*{name}" id="floatingInputUsername" placeholder="Name" required autofocus>-->
+<!--                            </div>-->
+<!--                            <div class="form-floating mb-3">-->
+<!--                                <label for="floatingInputSurname">Surname</label>-->
+<!--                                <input type="text" class="form-control" th:field="*{surname}" id="floatingInputSurname" placeholder="Surname" required autofocus>-->
+<!--                            </div>-->
+<!--                            <div class="form-floating mb-3">-->
+<!--                                <label for="email">Email address</label>-->
+<!--                                <input type="email" class="form-control" th:field="*{email}" id="email" required placeholder="name@example.com">-->
+
+<!--                            </div>-->
+<!--                            <div class="form-floating mb-3">-->
+<!--                                <label for="floatingPassword">Password</label>-->
+<!--                                <input type="password" class="form-control" th:field="*{password}" id="floatingPassword" placeholder="Password" required minlength="4">-->
+<!--                            </div>-->
+<!--                            <div class="d-grid mb-2">-->
+<!--                                <button class="btn btn-lg btn-primary btn-login fw-bold text-uppercase" type="submit">Registration</button>-->
+<!--                            </div>-->
+<!--                            <a class="d-block text-center mt-2 small" href="/auth/login">Have an account? Login</a>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
+<!--        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"-->
+<!--        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"-->
+<!--        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+<!--        crossorigin="anonymous"></script>-->
+<!--</body>-->
+<!--</html>-->

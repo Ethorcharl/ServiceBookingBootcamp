@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Date and Time Picker Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <form method="post" action="/createBookingSave" th:object="${booking}">
+
+            <div class="form-group">
+                <label for="datetime">Pick time and date:</label>
+                <input type="text" id="datetime" th:field="*{date}" name="datetime" class="form-control">
+            </div>
+
+            <td>
+                <input  readonly type="hidden" th:field="*{idServices}" id="serviceId" placeholder="serviceId">
+            </td>
+            <td>
+                <input  readonly type="hidden" th:field="*{idSeller}"  id="authorId" placeholder="authorId">
+            </td>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+        </form>
+    </div>
+</div>
+</body>
+
+<script>
+        flatpickr("#datetime", {
+            disable: [
+                function(date) {
+                    if (date.getDay() === 6 || date.getDay() === 0) {
+                        return true;
+                    }
+                    return false;
+                }
+            ],
+            minDate: "today",
+            maxDate: new Date().fp_incr(14),
+            dateFormat: "Y-m-d H:i",
+            enableTime: true,
+            time_24hr: true,
+            minTime: "09:00",
+            maxTime: "17:00",
+            minuteIncrement: 30,
+        });
+</script>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Services</title>
+  <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+  <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+  <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+  <style>
+             a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+
+         .services {
+        padding: 10px 20px;
+        font-size: 15px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;
+        }
+
+        </style>
+  <nav>
+    <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+    <button class="header"><a href="/registration">Register</a></button>
+    <button class="header"><a href="/profile">My profile</a></button>
+    <button class="header"><a href="/contact-us">Contact Us</a></button>
+    <button class="header"><a href="/about-us">About Us</a></button>
+    <button class="header"><a href="/services">Our Services</a></button>
+    <button class="header"><a href="/home">Home</a></button>
+  </nav>
+</head>
+<body>
+<p>
+  <ul>
+    <button class="services" th:each="servicesCategory : ${servicesCategories}">
+      <span th:text="${servicesCategory.category}"></span>
+      <ul>
+        <li th:each="service : ${servicesCategory.services}">
+          <span th:text="${servicesCategory.subCategory}"></span>
+          <a th:href="@{/services/description/{serviceId}(serviceId=${service.id})}">
+            <span style="font-weight: bold" th:text="${service.name}"></span>
+          </a>
+        </li>
+      </ul>
+    </button>
+  </ul>
+</p>
+
+<!--<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>Category</th>
+      <th>Subcategory</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="servicesCategory:${servicesCategories}">
+      <td th:text="${servicesCategory.category}"></td>
+      <td th:text="${servicesCategory.subCategory}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>-->
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Welcome to Service Booking!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="icon" type="image/x-icon" href="https://i.ibb.co/ySYDwL1/design-2-5.png">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="/webjars/bootstrap/5.0.0-beta3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.0.0-beta3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+    <style>
+
+    .mySlides {display:none;
+    }
+         a {
+        color: white;
+        text-decoration:none;
+        }
+
+        .header {
+        float: right;
+        padding: 10px 20px;
+        font-size: 20px;
+        color: white;
+        background-color: #955aed;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 15px 10px 0px 10px;
+        transition: background-color 0.3s ease-in-out;}
+
+       body {
+        background-color: #f8f9fa;
+      }
+      p {
+        border: 1px solid #955aed;
+        border-radius: 5px;
+        padding: 30px;
+        margin: 50px 400px 20px 400px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        background-color: white;
+        text-align: center;
+      }
+    </style>
+    <nav>
+        <img src="https://i.ibb.co/RD6sbKs/icon-service.png" alt="logo">
+        <button class="header"><a href="/registration">Register</a></button>
+        <button class="header"><a href="/private">My profile</a></button>
+        <button class="header"><a href="/contact-us">Contact Us</a></button>
+        <button class="header"><a href="/about-us">About Us</a></button>
+        <button class="header"><a href="/services">Our Services</a></button>
+        <button class="header"><a href="/home">Home</a></button>
+    </nav>
+</head>
+<body>
+        <h1></h1>
+        <p>
+            Welcome to the Service Booking! <br> You can register as a specialist and offer your services!
+            Or you gan register as a clients and buy services! <br>
+            Get started quickly by signing up.
+        </p>
+
+        <div class="w3-content w3-display-container">
+            <img class="mySlides" src="https://i.ibb.co/1McwyRJ/pexels-christina-morillo-1181467-5259x3098.jpg" style="width:100%">
+            <img class="mySlides" src="https://i.ibb.co/kccG8Xn/pexels-pixabay-53621.jpg" style="width:100%">
+            <img class="mySlides" src="https://i.ibb.co/cDwhyQ5/pexels-antoni-shkraba-4348401-1.jpg" style="width:100%">
+
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+
+
+</body>
+</html>
